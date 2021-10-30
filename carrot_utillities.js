@@ -77,6 +77,7 @@ function capitalizeFL(string) {
 }
 
 
+/*
 
 // Popup Notifications
 function openDialog(title, desc, buttonName, buttonStyle, buttonAction) {
@@ -196,3 +197,4 @@ function clearToasts() {
         closeToast(entry);
     }
 }
+*/
