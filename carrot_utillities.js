@@ -49,6 +49,14 @@ function DisplayRounded(Value, Fixedto = 3) {
     return Value;
 }
 
+// Add commas to full number
+// From: https://stackoverflow.com/a/2901298/11039898
+function numCommas(num) {
+    var parts = num.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
+}
+
 //multibuy
 const multibuy = [1,10,100];
 var multibuySelector = 0;
