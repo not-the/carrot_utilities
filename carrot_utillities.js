@@ -85,6 +85,29 @@ function capitalizeFL(string) {
 }
 
 
+function playSound(file,path='./assests/sounds/') {
+    if(store('enableSounds') == 'false') return;
+    var audio = new Audio(path+file);
+    audio.play();
+}
+
+// Play Music
+var music;
+function playMusic(file = 'music.m4a', loop = false, path='assets/music/') {
+    if(store('enableSounds') == 'false' || store('enableMusic') == 'false') return;
+    music = new Audio(path+file);
+    music.volume = volume;
+    music.loop = loop;
+    console.log('playMusic() - Playing track 1...');
+    music.play();
+}
+
+function stopMusic() {
+    music.pause();
+    music.currentTime = 0;
+}
+
+
 /*
 
 // Popup Notifications
