@@ -85,9 +85,9 @@ function capitalizeFL(string) {
 }
 
 
-function playSound(file,path='./assests/sounds/') {
+function playSound(file, path='./assets/sounds/') {
     if(store('enableSounds') == 'false') return;
-    var audio = new Audio(path+file);
+    var audio = new Audio(path + file);
     audio.play();
 }
 
