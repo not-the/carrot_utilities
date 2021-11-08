@@ -3,34 +3,77 @@
 /* Utility functions */
 
 
-// getElementById shorthand
+/**
+ * getElementById shorthand
+ * @param {string} id 
+ * @returns Document Element Id
+ */
 function dom(id) {return document.getElementById(id);}
 
-// document.querySelector shorthand
+
+/**
+ * document.querySelector shorthand
+ * @param {sting} sel 
+ * @returns Document Query Selector
+ */
 function $(sel) {return document.querySelector(sel);}
 
-// Local Storage shorthand (Strings only)
+
+/**
+ * Retrives Strings in Local Storage (Stores Strings if Given a Value)
+ * @param {string} key 
+ * @param {string} value 
+ * @returns Local Storage Item
+ */
 function store(key, value) {
     if(value) {localStorage.setItem(key, value);}
     else {return localStorage.getItem(key);}
 }
 
-// sessionStorage shorthand
+/**
+ * Retrives numbers in Local Storage (Stores numbers if Given a Value)
+ * @param {string} key 
+ * @param {number} value 
+ * @returns Local Storage Item
+ */
+function storeNum(key,value){
+    if(value) {localStorage.setItem(key, JSON.stringify(value))}
+    else {
+        var v = localStorage.getItem(key);
+        return v && Number(v)}
+}
+
+
+/**
+ * Retrives Strings in Session Storage (Stores Strings if Given a Value)
+ * @param {string} key 
+ * @param {string} value 
+ * @returns  Session Storage item
+ */
 function sessionStorage(key, value) {
     if(value) {sessionStorage.setItem(key, value);}
     else {return sessionStorage.getItem(key);}
 }
 
-
-
-// Locally Store Objects
+/**
+ * Stores Objects in Local Storage
+ * @param {string} key 
+ * @param {object} value 
+ */
 Storage.prototype.setObject = function(key, value) {
     this.setItem(key, JSON.stringify(value));
 }
+
+/**
+ * Retrives Stored Objects
+ * @param {string} key 
+ * @returns Stored Object
+ */
 Storage.prototype.getObject = function(key) {
     var value = this.getItem(key);
     return value && JSON.parse(value);
 }
+
 
 // Creates Bases to Display Large Numbers 
 const Bases=[];
@@ -39,8 +82,7 @@ for(i=1000;i<99999999999999999999999999999;i=i*1000) {
 }
 
 // Displaying Rounded Numbers example"100m 140b
-function DisplayRounded(Value, Fixedto = 3) {
-    var units = ["k","m","b","t","q","Q","s","S"];
+function DisplayRounded(Value, Fixedto = 3,units=["k","m","b","t","q","Q","s","S","o","n","d","u","D","T","qu","Qu","se","Se","O","N","V"]) {
     for(i=0;i<units.length;i++){
         if(Value<Bases[i+1] && Value>Bases[0]){
             return (Value/Bases[i]).toFixed(Fixedto)+units[i];
@@ -85,9 +127,9 @@ function capitalizeFL(string) {
 }
 
 
-function playSound(file, path='./assets/sounds/') {
+function playSound(file,path='./assets/sounds/') {
     if(store('enableSounds') == 'false') return;
-    var audio = new Audio(path + file);
+    var audio = new Audio(path+file);
     audio.play();
 }
 
@@ -101,7 +143,7 @@ function playMusic(file = 'music.m4a', loop = false, path='assets/music/') {
     console.log('playMusic() - Playing track 1...');
     music.play();
 }
-
+a
 function stopMusic() {
     music.pause();
     music.currentTime = 0;
