@@ -138,12 +138,12 @@ var music;
 function playMusic(file = 'music.m4a', loop = false, path='assets/music/') {
     if(store('enableSounds') == 'false' || store('enableMusic') == 'false') return;
     music = new Audio(path+file);
-    music.volume = volume;
+    music.volume = volume / 100;
     music.loop = loop;
     console.log('playMusic() - Playing track 1...');
     music.play();
 }
-a
+
 function stopMusic() {
     music.pause();
     music.currentTime = 0;
