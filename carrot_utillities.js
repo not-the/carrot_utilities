@@ -126,6 +126,8 @@ function capitalizeFL(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+// Volume variable
+var volume = 100;
 
 function playSound(file,path='./assets/sounds/') {
     if(store('enableSounds') == 'false') return;
