@@ -28,6 +28,15 @@ function eInnerText(element, text) {
     if(element.innerText != text) element.innerText = text;
 }
 
+/**
+ * Efficient innerHTML, checks to see if the variable has changed before manipulating the page.
+ * @param {string} element
+ * @param {string} text
+ * @returns undefined
+ */
+function eInnerHTML(element, html) {
+    if(element.innerHTML != html) element.innerHTML = html;
+}
 
 /**
  * Retrives Strings in Local Storage (Stores Strings if Given a Value)
@@ -107,6 +116,12 @@ function numCommas(num) {
     var parts = num.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
+}
+
+// Percentage calculator
+// https://stackoverflow.com/a/48841348/11039898
+function percentage(num, total) {
+   return (100 * num) / total;
 }
 
 //multibuy
