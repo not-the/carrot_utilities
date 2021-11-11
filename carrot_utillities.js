@@ -13,10 +13,19 @@ function dom(id) {return document.getElementById(id);}
 
 /**
  * document.querySelector shorthand
- * @param {sting} sel 
+ * @param {string} sel 
  * @returns Document Query Selector
  */
 function $(sel) {return document.querySelector(sel);}
+
+/**
+ * Efficient innerText, checks to see if the variable has changed before manipulating the page.
+ * @param {string}
+ * @returns undefined
+ */
+function eInnerText(element, text) {
+    if(element.innerText != text) element.innerText = text;
+}
 
 
 /**
