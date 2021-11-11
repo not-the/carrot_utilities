@@ -20,7 +20,8 @@ function $(sel) {return document.querySelector(sel);}
 
 /**
  * Efficient innerText, checks to see if the variable has changed before manipulating the page.
- * @param {string}
+ * @param {string} element
+ * @param {string} text
  * @returns undefined
  */
 function eInnerText(element, text) {
