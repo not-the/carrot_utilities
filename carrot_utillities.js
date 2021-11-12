@@ -96,7 +96,7 @@ Storage.prototype.getObject = function(key) {
 
 // Creates Bases to Display Large Numbers 
 const Bases=[];
-for(i=1000;i<99999999999999999999999999999;i=i*1000) {
+for(i=1000;i<99999999999999999999999999999999999999999;i=i*1000) {
     Bases.push(i);
 }
 
