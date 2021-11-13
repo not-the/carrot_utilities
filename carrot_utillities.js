@@ -172,6 +172,10 @@ function playMusic(file = 'music.m4a', loop = false, path='assets/music/') {
 }
 
 function stopMusic() {
+    if(!music) {
+        console.log('stopMusic(): No music is playing');
+        return;
+    };
     music.pause();
     music.currentTime = 0;
 }
