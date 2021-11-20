@@ -107,7 +107,7 @@ function DisplayRounded(Value, Fixedto = 3,units=["k","m","b","t","q","Q","s","S
             return (Value/Bases[i]).toFixed(Fixedto)+units[i];
         }
     }
-    return Value;
+    return Value.toFixed(Fixedto);
 }
 
 // Add commas to full number
