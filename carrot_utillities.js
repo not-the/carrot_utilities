@@ -102,24 +102,12 @@ for(i=1000;i<99999999999999999999999999999999999999999;i=i*1000) {
 
 // Displaying Rounded Numbers example"100m 140b
 function DisplayRounded(Value, Fixedto = 3,units=["k","m","b","t","q","Q","s","S","o","n","d","u","D","T","qu","Qu","se","Se","O","N","V"]) {
-    let output = Value;
-    let unit = '';
-    
-    // Loop bases
     for(i=0;i<units.length;i++){
         if(Value<Bases[i+1] && Value>Bases[0]){
-            output = Value / Bases[i];
-            unit = units[i]
+            return (Value/Bases[i]).toFixed(Fixedto)+units[i];
         }
     }
-    
-    // Return
-    if(output % 1 == 0) {
-        // No decimal if whole number
-        return output + unit;
-    } else {
-        return output.toFixed(Fixedto) + unit;
-    }
+    return Value;
 }
 
 // Add commas to full number
