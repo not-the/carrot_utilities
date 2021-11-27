@@ -150,9 +150,10 @@
  // delete save
  function ClearLocalStorage(disableReload){
      console.log('Clearing local storage');
+     window.scrollTo(0, 0);
      
      localStorage.clear();
-     if(disableReload) {return;}
+     if(disableReload) return;
      location.reload();
  }
  
