@@ -110,7 +110,7 @@
  function DisplayRounded(Value, Fixedto = 3, min = 0, units = unitsShort) {
      // Return with commas instead of min is specified
      if(Value < min) {
-         return numCommas(Value.toFixed(Fixedto);
+         return numCommas(Value.toFixed(Fixedto));
      }
      
      for(i=0;i<units.length;i++){
