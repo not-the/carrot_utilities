@@ -116,7 +116,7 @@
      
      for(i=0;i<units.length;i++){
          if(Value<Bases[i+1] && Value>Bases[0]){
-             if(value % 1 == 0) Fixedto = 0;
+             if(Value % 1 == 0) Fixedto = 0;
              return (Value/Bases[i]).toFixed(Fixedto)+units[i];
          }
      }
