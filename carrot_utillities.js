@@ -107,21 +107,24 @@
  */
  const unitsShort = ["k","m","b","t","q","Q","s","S","o","n","d","u","D","T","qu","Qu","se","Se","O","N","V"];
  const unitsLong =  [" thousand"," million"," billion"," trillion"," quadrillion"," quintillion"," sextillion"," septillion"," octillion"," nonillion"," decillion"," undecillion"," duodecillion"," tredecillion"," quattuordecillion"," quindecillion"," sexdecillion"," septendecillion"," octodecillion"," novemdecillion"," vigintillion"];
- function DisplayRounded(Value, Fixedto = 3, min = 0, units = unitsShort) {
-     // Return with commas instead of min is specified
-     if(Value < min) {
-         if(Value % 1 == 0) Fixedto = 0;
-         return numCommas(Value.toFixed(Fixedto));
-     }
-     
-     for(i=0;i<units.length;i++){
-         if(Value<Bases[i+1] && Value>Bases[0]){
-             if(Value % 1 == 0) Fixedto = 0;
-             return (Value/Bases[i]).toFixed(Fixedto)+units[i];
-         }
-     }
-     return Value;
- }
+function DisplayRounded(Value, Fixedto = 3, min = 0, units = unitsShort) {
+    let fixed = Fixedto;
+    if(Value % 1 == 0) { fixed = 0; }
+
+    // Return with commas instead of min is specified
+    if(Value < min) {
+        return numCommas(Value.toFixed(fixed));
+    }
+    
+    for(i = 0; i < units.length; i++){
+        if(Value/Bases[i] % 1 == 0) { fixed = 0; }
+        else { fixed = Fixedto; }
+        if(Value < Bases[i + 1] && Value > Bases[0]){
+            return (Value/Bases[i]).toFixed(fixed) + units[i];
+        }
+    }
+    return Value;
+}
  
  // Add commas to full number
  // From: https://stackoverflow.com/a/2901298/11039898
