@@ -140,17 +140,6 @@ function DisplayRounded(Value, Fixedto = 3, min = 0, units = unitsShort) {
     return (100 * num) / total;
  }
  
- //multibuy
- const multibuy = [1,10,100];
- var multibuySelector = 0;
- function multibuySpin(){
-   if(multibuy[multibuy.length-1]>multibuy[multibuySelector]){
-     multibuySelector++;
-   }else{
-     multibuySelector=0;
-   }
- }
- 
  
  // delete save
  function ClearLocalStorage(disableReload){
