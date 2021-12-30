@@ -99,14 +99,15 @@
  for(i=1000;i<99999999999999999999999999999999999999999;i=i*1000) {
      Bases.push(i);
  }
- 
+
+
+const unitsShort = ["k","m","b","t","q","Q","s","S","o","n","d","u","D","T","qu","Qu","se","Se","O","N","V"];
+const unitsLong =  [" thousand"," million"," billion"," trillion"," quadrillion"," quintillion"," sextillion"," septillion"," octillion"," nonillion"," decillion"," undecillion"," duodecillion"," tredecillion"," quattuordecillion"," quindecillion"," sexdecillion"," septendecillion"," octodecillion"," novemdecillion"," vigintillion"]
  /**
  * Displaying Rounded Numbers example"100m 140b
- * @param {string} Value number to round 
+ * @param {Number} Value number to round 
  * @returns rounded number
  */
- const unitsShort = ["k","m","b","t","q","Q","s","S","o","n","d","u","D","T","qu","Qu","se","Se","O","N","V"];
- const unitsLong =  [" thousand"," million"," billion"," trillion"," quadrillion"," quintillion"," sextillion"," septillion"," octillion"," nonillion"," decillion"," undecillion"," duodecillion"," tredecillion"," quattuordecillion"," quindecillion"," sexdecillion"," septendecillion"," octodecillion"," novemdecillion"," vigintillion"];
 function DisplayRounded(Value, Fixedto = 3, min = 0, units = unitsShort) {
     let fixed = Fixedto;
     if(Value % 1 == 0) { fixed = 0; }
@@ -128,20 +129,36 @@ function DisplayRounded(Value, Fixedto = 3, min = 0, units = unitsShort) {
  
  // Add commas to full number
  // From: https://stackoverflow.com/a/2901298/11039898
+ /**
+  * Adds commas to numbers
+  * @param {Number} number 
+  * @returns A number seperated with commas
+  */
  function numCommas(num) {
      var parts = num.toString().split(".");
      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
      return parts.join(".");
  }
- 
+
+
  // Percentage calculator
  // https://stackoverflow.com/a/48841348/11039898
+ /**
+  * Finds a Percentage
+  * @param {Number} number 
+  * @param {Number} total 
+  * @returns (100 * number)/total
+  */
  function percentage(num, total) {
     return (100 * num) / total;
  }
  
  
  // delete save
+ /**
+  * Clears local storage
+  * @param {Boolean} disableReload 
+  */
  function ClearLocalStorage(disableReload){
      console.log('Clearing local storage');
      window.scrollTo(0, 0);
